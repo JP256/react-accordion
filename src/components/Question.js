@@ -12,13 +12,24 @@ export default function Question({ item }) {
     <div
       className="card"
       style={{ borderTop: showAnswer === true ? "5px solid green" : "" }}
+      onClick={handleShowAnswer}
     >
       <div className="card-question">
-        <p style={{ color: showAnswer === true ? "green" : "black" }}>
+        <p
+          style={{
+            color: showAnswer === true ? "green" : "black",
+            fontWeight: "bold",
+          }}
+        >
           {item.id < 10 ? "0" + item.id.toString() : item.id.toString()}
         </p>
         <div>
-          <p style={{ color: showAnswer === true ? "green" : "black" }}>
+          <p
+            style={{
+              color: showAnswer === true ? "green" : "black",
+              fontWeight: "bold",
+            }}
+          >
             {item.question}
           </p>
           <p
@@ -28,7 +39,7 @@ export default function Question({ item }) {
             {item.answer}
           </p>
         </div>
-        <p onClick={handleShowAnswer}>{showAnswer ? "-" : "+"}</p>
+        <p>{showAnswer ? "-" : "+"}</p>
       </div>
     </div>
   );
