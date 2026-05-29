@@ -73,7 +73,7 @@ export default function Board() {
     <div className="container">
       <h1>Questionary</h1>
       {reactQuestions.map((item) => (
-        <Question item={item} key={item.id} num={isOpen} onTaggle={setIsOpen} />
+        <Question item={item} key={item.id} num={isOpen} onToggle={setIsOpen} />
       ))}
     </div>
   );

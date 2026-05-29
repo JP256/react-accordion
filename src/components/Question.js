@@ -1,15 +1,15 @@
 import "./Question.css";
 
-export default function Question({ item, num, onTaggle }) {
-  function handleTaggle() {
-    onTaggle((n) => (item.id === num ? null : item.id));
+export default function Question({ item, num, onToggle }) {
+  function handleToggle() {
+    onToggle((n) => (item.id === num ? null : item.id));
   }
 
   return (
     <div
       className="card"
       style={{ borderTop: num === item.id ? "5px solid green" : "" }}
-      onClick={handleTaggle}
+      onClick={handleToggle}
     >
       <div className="card-question">
         <p
