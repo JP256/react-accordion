@@ -1,4 +1,5 @@
 import Question from "./Question";
+import { useState } from "react";
 import "./Board.css";
 
 const reactQuestions = [
@@ -66,11 +67,13 @@ const reactQuestions = [
 ];
 
 export default function Board() {
+  const [isOpen, setIsOpen] = useState(null);
+
   return (
     <div className="container">
       <h1>Questionary</h1>
       {reactQuestions.map((item) => (
-        <Question item={item} key={item.id} />
+        <Question item={item} key={item.id} num={isOpen} onTaggle={setIsOpen} />
       ))}
     </div>
   );

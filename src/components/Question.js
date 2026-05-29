@@ -1,23 +1,20 @@
 import "./Question.css";
-import { useState } from "react";
 
-export default function Question({ item }) {
-  const [showAnswer, setShowAnswer] = useState(false);
-
-  function handleShowAnswer() {
-    setShowAnswer((s) => !s);
+export default function Question({ item, num, onTaggle }) {
+  function handleTaggle() {
+    onTaggle((n) => (item.id === num ? null : item.id));
   }
 
   return (
     <div
       className="card"
-      style={{ borderTop: showAnswer === true ? "5px solid green" : "" }}
-      onClick={handleShowAnswer}
+      style={{ borderTop: num === item.id ? "5px solid green" : "" }}
+      onClick={handleTaggle}
     >
       <div className="card-question">
         <p
           style={{
-            color: showAnswer === true ? "green" : "black",
+            color: num === item.id ? "green" : "black",
             fontWeight: "bold",
           }}
         >
@@ -26,7 +23,7 @@ export default function Question({ item }) {
         <div>
           <p
             style={{
-              color: showAnswer === true ? "green" : "black",
+              color: num === item.id ? "green" : "black",
               fontWeight: "bold",
             }}
           >
@@ -34,12 +31,12 @@ export default function Question({ item }) {
           </p>
           <p
             className="card-anwers"
-            style={{ display: showAnswer === false ? "none" : "block" }}
+            style={{ display: num !== item.id ? "none" : "block" }}
           >
             {item.answer}
           </p>
         </div>
-        <p>{showAnswer ? "-" : "+"}</p>
+        <p>{item.id === num ? "-" : "+"}</p>
       </div>
     </div>
   );
